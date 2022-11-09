@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px 80px;
+  font-family: Roboto;
+  background-color: #393e46;
+}
+
+h2 {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 56px;
+  max-height: 56px;
+  text-align: center;
+
+  color: #547df0;
+
+  text-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.name {
+  font-style: italic;
+  color: #eeeeee;
+  font-weight: 100;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}
+.container {
+  width: 522px;
+  height: 684px;
+  left: 405px;
+  top: 75px;
+
+  background: #eeeeee;
+  box-shadow: -8px -8px 4px rgba(111, 111, 111, 0.25),
+    8px 8px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 50px;
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 478px;
+  height: 139px;
+  left: 426px;
+  top: 127px;
+  background: #4a515b;
+  box-shadow: -4px -4px 4px rgba(52, 52, 52, 0.25),
+    4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 19px;
+}
+.buttonOperator,
+.buttonOperatorTotal,
+.buttonReset,
+.button {
+  /* background: #233959; */
+  background: #233959;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 3.5em;
+  text-align: center;
+
+  height: 86px;
+  width: 109px;
+
+  border: none;
+  border-radius: 10px;
+  color: #eeeeee;
+  margin: 10px 0px;
+
+  box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.25),
+    -6px -6px 4px rgba(255, 255, 255, 0.25);
+}
+
+.buttonOperatorTotal {
+  background-color: #547df0;
+}
+.containerScreen {
+  padding: 45px 0px;
+  display: flex;
+  justify-content: center;
+}
+.containerButton {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-content: space-between;
+  padding: 0px 20px;
+}
+
+.button:hover,
+.buttonOperator:hover,
+.buttonOperatorTotal:hover,
+.buttonReset:hover {
+  color: #547df0;
+  cursor: pointer;
+}
+.buttonOperatorTotal:hover {
+  color: #393e46;
+}
+
+.digitScreenUp {
+  padding: 10px;
+  margin: 0px;
+  font-size: 1.5em;
+  font-style: normal;
+  font-weight: 700;
+  text-align: end;
+
+  color: rgba(205, 206, 208, 0.54);
+
+  text-shadow: 0px 1.82857px 1.82857px rgba(0, 0, 0, 0.25);
+}
+
+.digitScreenDown {
+  padding: 10px;
+  margin: 0px;
+  font-size: 2.5em;
+  font-style: normal;
+  font-weight: 700;
+  text-align: end;
+  color: #cccccc;
+
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
