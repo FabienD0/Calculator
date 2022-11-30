@@ -12,6 +12,8 @@ You can;
 
 Mostly happy with the result right now. There’s some small bug but this will be fix with the upcoming update and more features will be added after that. 
 
+<b>Here's the link</b> : https://fabcalculator.netlify.app/
+
 
 ![calculator](https://user-images.githubusercontent.com/106413129/204684756-5500f43b-fdd3-4c1b-9673-67924ffed0d8.png)
 
