@@ -1,12 +1,12 @@
 //Ajouter 0 , POINT , CE , BACKARROW
-//////METTRE VIRGULE SI CHIFFRE + HAUT QUE 10 000
-/////Apres une equation (5+5) = 10..Si on repese sur EGALE tjr continuer avec le precedant OPERATOR (5+5) = 10..=15=20=25....
+///METTRE VIRGULE SI CHIFFRE + HAUT QUE 10 000
+//Apres une equation (5+5) = 10..Si on repese sur EGALE tjr continuer avec le precedant OPERATOR (5+5) = 10..=15=20=25....
 ///Ajouter une section / bouton MEMOIRE
 
 const body = document.querySelector("body");
 const h2 = document.querySelector("h2");
 
-////Hover ZOOM on H2//////////
+///Hover ZOOM on H2///
 const calculatorText = "Calculator";
 
 for (let i = 0; i < calculatorText.length; i++) {
@@ -27,7 +27,7 @@ for (let i = 0; i < calculatorText.length; i++) {
       document.getElementById("letterHeader-" + i).style.color = "#547df0";
     });
 }
-//////////////////////////////
+///
 ///Object OPERATOR / NUMBER + VARIABLES
 const calculator = {
   displayValue: "0",
@@ -41,8 +41,8 @@ let total = 0;
 let equalButton = false;
 let operatorButton = false;
 let operatorRightAfterEqual = false;
-///////////////////////////////////////
-////FUNCTION Create TEXT in SCREEN/////
+///
+///FUNCTION Create TEXT in SCREEN///
 const digitScreenUp = document.getElementById("digitScreenUp");
 const digitScreenDown = document.getElementById("digitScreenDown");
 
@@ -52,7 +52,7 @@ const updateDisplay = () => {
 const updateDisplayTop = () => {
   digitScreenUp.innerText = calculator.displayValueTop;
 };
-////////////UPDATE TOTAL//////////////////////////
+///UPDATE TOTAL///
 const updateDisplayTotal = () => {
   if (total === 0) {
     if (calculator.operator === " + ") {
@@ -77,9 +77,9 @@ const updateDisplayTotal = () => {
   }
   digitScreenDown.innerText = total;
 };
-////////////////////////////
-///////FUNCTION/////////////
-////More Number display
+///
+///FUNCTION///
+///More Number display
 const moreDigit = (digit) => {
   const value = calculator.displayValue;
   if (value === "0") {
@@ -88,7 +88,7 @@ const moreDigit = (digit) => {
     calculator.displayValue = value + digit;
   }
 };
-////Reset Button C
+///Reset Button C
 const reset = () => {
   calculator.displayValue = "0";
   calculator.displayValueTop = "";
@@ -101,33 +101,40 @@ const reset = () => {
   updateDisplay();
   updateDisplayTop();
 };
-////Small Reset
+///Reset Button CE
+const resetScreen = () => {
+  calculator.displayValue = "0";
+  updateDisplay();
+};
+///Small Reset
 const smallReset = () => {
   calculator["isSecondNumber"] = false;
   calculator["firstNumber"] = null;
   calculator["secondNumber"] = null;
 };
-////////////////////////////
-////Start Calculator///////
-//////////////////////////
+///
+///Start Calculator///
+///
 updateDisplay();
-//////On-Click Command/////
+///On-Click Command///
 const key = document
   .querySelector(".containerButton")
   .addEventListener("click", (event) => {
     const target = event.target;
-    ////////////////////////////////////////
-    ////BACK REMOVE BUTTON////
-    if (target.matches(".test")) {
+    ///
+    ///BACK REMOVE BUTTON///
+    if (target.matches(".buttonBack") && calculator.displayValue !== "0") {
       calculator.displayValue = calculator.displayValue.slice(
         0,
         calculator.displayValue.length - 1
       );
-      console.log(calculator.displayValue);
+      if (calculator.displayValue === "") {
+        calculator.displayValue = "0";
+      }
       updateDisplay();
     }
-    //////////////////////////////////////////
-    ////////FIRST NUMBER BUTTON///////////////
+    ///
+    ///FIRST NUMBER BUTTON///
     if (
       target.matches(".button") &&
       calculator.isSecondNumber === false &&
@@ -137,8 +144,8 @@ const key = document
       updateDisplay();
       calculator["displayValueTop"] = calculator.displayValueTop + target.value;
       operatorButton = true;
-      /////////////////////////////////////////////
-      ////////SECOND NUMBER BUTTON////////////////
+      ///
+      ///SECOND NUMBER BUTTON///
     } else if (
       target.matches(".button") &&
       calculator.isSecondNumber === true
@@ -155,8 +162,8 @@ const key = document
       }
       operatorButton = true;
     }
-    /////////////////////////////////////////////
-    ////////OPERATOR BUTTON/////////////////////
+    ///
+    ///OPERATOR BUTTON///
     if (operatorButton) {
       if (target.matches(".buttonOperator")) {
         if (
@@ -172,13 +179,13 @@ const key = document
           updateDisplay();
           equalButton = false;
 
-          //////////OPERATOR AFTER EQUAL BUTTON////////
+          ///OPERATOR AFTER EQUAL BUTTON///
         } else if (calculator.operator === null && equalButton === true) {
           calculator["operator"] = target.value;
           calculator["firstNumber"] = total;
           equalButton = false;
           operatorRightAfterEqual = true;
-          //////NUMBER TO ANOTHER OPERATOR////////
+          ///NUMBER TO ANOTHER OPERATOR///
         } else if (
           target.value !== calculator.operator &&
           calculator.operator !== null
@@ -197,8 +204,8 @@ const key = document
           calculator["isSecondNumber"] = true;
           operatorButton = false;
         } else {
-          ///////////////////////////////////////
-          //////FIRST OPERATOR THAT WE CHOOSE/////
+          ///
+          ///FIRST OPERATOR THAT WE CHOOSE///
           calculator["firstNumber"] = calculator.displayValue;
           calculator["displayValueTop"] =
             calculator.displayValue + target.value;
@@ -208,7 +215,7 @@ const key = document
           operatorButton = false;
         }
       }
-      ///////////OPERATOR TO ANOTHER OPERATOR RIGHT AFTER///////
+      ///OPERATOR TO ANOTHER OPERATOR RIGHT AFTER///
     } else if (
       operatorButton === false &&
       calculator.operator !== target.value &&
@@ -218,9 +225,12 @@ const key = document
       calculator.displayValueTop = total + calculator.operator;
       updateDisplayTop();
     }
-    /////////////////////////////////////////////
-    ////////TOTAL BUTTON////////////////////////
-    if (target.matches(".buttonOperatorTotal")) {
+    ///
+    ///TOTAL BUTTON///
+    if (
+      target.matches(".buttonOperatorTotal") &&
+      calculator.secondNumber !== null
+    ) {
       if (!equalButton && operatorButton) {
         calculator["secondNumber"] = calculator.displayValue;
         calculator.displayValueTop =
@@ -236,10 +246,14 @@ const key = document
         operatorButton = true;
       }
     }
-    /////////////////////////////////////////////
-    ////////RESET C BUTTON////////////////
+    ///
+    ///RESET C BUTTON///
     if (target.matches(".buttonReset")) {
       reset();
     }
-    console.log(total);
+    ///
+    ///RESET CE BUTTON///
+    if (target.matches(".buttonResetScreen")) {
+      resetScreen();
+    }
   });
