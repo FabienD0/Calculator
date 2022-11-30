@@ -5,6 +5,8 @@ I’m trying to practice my new skills with Javascript, CSS & Html. The javascri
 You can;
 
 -	Reset with the C button.
+- Reset display with CE button.
+- Erase the current number with the 🡨.
 -	Division/multiplication/subtraction & addition.
 -	Change the operator as you want (after the total or with the current operation).
 -	When the total button is pressed, numbers are blocked to not cause error.
