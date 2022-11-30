@@ -6,7 +6,7 @@ You can;
 
 -	Reset with the C button.
 - Reset display with CE button.
-- Erase the current number with the 🡨.
+- Erase the current number one by one with the arrow (🡨).
 -	Division/multiplication/subtraction & addition.
 -	Change the operator as you want (after the total or with the current operation).
 -	When the total button is pressed, numbers are blocked to not cause error.
