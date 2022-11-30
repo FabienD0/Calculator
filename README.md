@@ -10,7 +10,8 @@ You can;
 -	When the total button is pressed, numbers are blocked to not cause error.
 -	Display the operation / operator & total on the upper side of the “screen”.
 
-Mostly happy with the result right now. There’s some small bug and I forgot to add the number ‘0’, this will be fix with the upcoming update and more features will be added after that. 
+Mostly happy with the result right now. There’s some small bug but this will be fix with the upcoming update and more features will be added after that. 
 
 
-![calculator](https://user-images.githubusercontent.com/106413129/200916386-906d06c9-9cbe-47f9-b62b-5d32d0d51c37.png)
+![calculator](https://user-images.githubusercontent.com/106413129/204684756-5500f43b-fdd3-4c1b-9673-67924ffed0d8.png)
+
